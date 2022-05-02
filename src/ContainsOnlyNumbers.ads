@@ -6,27 +6,27 @@ with Ada.Strings.Wide_Wide_Unbounded;
 
 package ContainsOnlyNumbers is
 
-   function CheckString
+   function NormalString
      (StringExtern : in String)
       return Boolean;
    
-   function CheckWideString
+   function WideString
      (WideStringExtern : in Wide_String)
       return Boolean;
    
-   function CheckWideWideString
+   function WideWideString
      (WideWideStringExtern : in Wide_Wide_String)
       return Boolean;
 
-   function CheckUnboundedString
+   function UnboundedString
      (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
       return Boolean;
    
-   function CheckUnboundedWideString
+   function UnboundedWideString
      (UnboundedWideStringExtern : in Ada.Strings.Wide_Unbounded.Unbounded_Wide_String)
       return Boolean;
    
-   function CheckUnboundedWideWideString
+   function UnboundedWideWideString
      (UnboundedWideWideStringExtern : in Ada.Strings.Wide_Wide_Unbounded.Unbounded_Wide_Wide_String)
       return Boolean;
    

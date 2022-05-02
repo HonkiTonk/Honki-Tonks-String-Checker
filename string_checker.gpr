@@ -27,10 +27,7 @@ project String_Checker is
    type Build_Kind is ("debug", "optimize");
    Build_Mode : Build_Kind := External ("STRING_CHECKER_BUILD_MODE", "optimize");
 
-   Compile_Checks_Switches := ();
-   case Compile_Checks is
-      when "enabled" =>
-         Compile_Checks_Switches := (
+   Compile_Checks_Switches := (
                                      "-gnat2020", "-gnatW8", "-gnatf",
 
                                      "-gnatwa", "-gnatwe", "-gnatw.a", "-gnatw.b", "-gnatwc",
@@ -48,31 +45,40 @@ project String_Checker is
                                      "-gnatVi", "-gnatVm", "-gnatVo", "-gnatVp", "-gnatVr",
                                      "-gnatVs", "-gnatVt"
                                     );
+
+   case Compile_Checks is
+      when "enabled" =>
+         null;
+
       when others =>
          null;
    end case;
 
-   Runtime_Checks_Switches := ();
-   case Runtime_Checks is
-      when "enabled" =>
-         Runtime_Checks_Switches := (
+   Runtime_Checks_Switches := (
                                      "-gnato", "-fstack-check"
                                     );
+   case Runtime_Checks is
+      when "enabled" =>
+         null;
+
       when others =>
-         Runtime_Checks_Switches :=
-           ("-gnatp"); -- Suppress checks
+         null;
+        -- Runtime_Checks_Switches :=
+        --   ("-gnatp"); -- Suppress checks
    end case;
 
-   Style_Checks_Switches := ();
-   case Style_Checks is
-      when "enabled" =>
-         Style_Checks_Switches := (
+   Style_Checks_Switches := (
                                    "-gnatya", "-gnatyA", "-gnatyC", "-gnatyd", "-gnatye",
                                    "-gnatyf", "-gnatyh", "-gnatyi", "-gnatyk", "-gnatyl",
                                    "-gnatyL7", "-gnatyM222", "-gnatyn", "-gnatyO", "-gnatyp",
                                    "-gnatyr", "-gnatys", "-gnatyS", "-gnatyx"
                                   );
-      when others => null;
+   case Style_Checks is
+      when "enabled" =>
+         null;
+
+      when others =>
+         null;
    end case;
 
    Contracts_Switches := ();

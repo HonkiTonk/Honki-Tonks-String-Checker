@@ -2,7 +2,7 @@ pragma Warnings (Off, "*array aggregate*");
 
 package body ContainsOnlyNumbers is
 
-   function CheckString
+   function NormalString
      (StringExtern : in String)
       return Boolean
    is begin
@@ -34,11 +34,11 @@ package body ContainsOnlyNumbers is
       
       return True;
       
-   end CheckString;
+   end NormalString;
    
    
       
-   function CheckWideString
+   function WideString
      (WideStringExtern : in Wide_String)
       return Boolean
    is begin
@@ -70,11 +70,11 @@ package body ContainsOnlyNumbers is
       
       return True;
       
-   end CheckWideString;
+   end WideString;
    
    
    
-   function CheckWideWideString
+   function WideWideString
      (WideWideStringExtern : in Wide_Wide_String)
       return Boolean
    is begin
@@ -106,11 +106,11 @@ package body ContainsOnlyNumbers is
       
       return True;
       
-   end CheckWideWideString;
+   end WideWideString;
    
       
    
-   function CheckUnboundedString
+   function UnboundedString
      (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
       return Boolean
    is begin
@@ -142,11 +142,11 @@ package body ContainsOnlyNumbers is
       
       return True;
       
-   end CheckUnboundedString;
+   end UnboundedString;
    
    
    
-   function CheckUnboundedWideString
+   function UnboundedWideString
      (UnboundedWideStringExtern : in Ada.Strings.Wide_Unbounded.Unbounded_Wide_String)
       return Boolean
    is begin
@@ -178,11 +178,11 @@ package body ContainsOnlyNumbers is
       
       return True;
       
-   end CheckUnboundedWideString;
+   end UnboundedWideString;
    
    
    
-   function CheckUnboundedWideWideString
+   function UnboundedWideWideString
      (UnboundedWideWideStringExtern : in Ada.Strings.Wide_Wide_Unbounded.Unbounded_Wide_Wide_String)
       return Boolean
    is begin
@@ -214,6 +214,6 @@ package body ContainsOnlyNumbers is
       
       return True;
       
-   end CheckUnboundedWideWideString;
+   end UnboundedWideWideString;
 
 end ContainsOnlyNumbers;
