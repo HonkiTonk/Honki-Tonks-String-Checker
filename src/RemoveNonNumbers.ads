@@ -4,8 +4,8 @@ with Ada.Strings.Unbounded;
 with Ada.Strings.Wide_Unbounded;
 with Ada.Strings.Wide_Wide_Unbounded;
 
-package RemoveNumbers is
-      
+package RemoveNonNumbers is
+
    procedure NormalString
      (StringExtern : in out String);
    
@@ -15,18 +15,11 @@ package RemoveNumbers is
    procedure WideWideString
      (WideWideStringExtern : in out Wide_Wide_String);
    
-   procedure UnboundedString
-     (UnboundedStringExtern : in out Ada.Strings.Unbounded.Unbounded_String);
    
    
-
    function NormalString
      (StringExtern : in String)
       return String;
-     
-   function UnboundedString
-     (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
-      return Ada.Strings.Unbounded.Unbounded_String;
 
    function WideString
      (WideStringExtern : in Wide_String)
@@ -42,4 +35,4 @@ private
    NewWideString : Ada.Strings.Wide_Unbounded.Unbounded_Wide_String;
    NewWideWideString : Ada.Strings.Wide_Wide_Unbounded.Unbounded_Wide_Wide_String;
 
-end RemoveNumbers;
+end RemoveNonNumbers;

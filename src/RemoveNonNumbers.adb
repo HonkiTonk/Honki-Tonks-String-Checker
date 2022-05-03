@@ -1,31 +1,34 @@
 pragma Warnings (Off, "*array aggregate*");
 
-package body ContainsOnlyNumbers is
-   
-   function UnboundedString
-     (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
-      return Boolean
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Ada.Strings.Wide_Unbounded; use Ada.Strings.Wide_Unbounded;
+with Ada.Strings.Wide_Wide_Unbounded; use Ada.Strings.Wide_Wide_Unbounded;
+
+package body RemoveNonNumbers is
+
+   procedure NormalString
+     (StringExtern : in out String)
    is begin
       
-      return NormalString (StringExtern => Ada.Strings.Unbounded.To_String (Source => UnboundedStringExtern));
+      StringExtern := NormalString (StringExtern => StringExtern);
       
-   end UnboundedString;
+   end NormalString;
    
    
 
    function NormalString
      (StringExtern : in String)
-      return Boolean
+      return String
    is begin
       
       case
         StringExtern'Length
       is
          when 0 =>
-            return False;
+            return "";
          
          when others =>
-            null;
+            NewString := Ada.Strings.Unbounded.To_Unbounded_String (Source => "");
       end case;
       
       StringLoop:
@@ -35,44 +38,43 @@ package body ContainsOnlyNumbers is
            StringExtern (StringLoopvalue)
          is
             when '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' =>
-               null;
+               NewString := NewString & StringExtern (StringLoopvalue)'Image;
             
             when others =>
-               return False;
+               null;
          end case;
             
       end loop StringLoop;
       
-      return True;
+      return Ada.Strings.Unbounded.To_String (Source => NewString);
       
    end NormalString;
    
    
    
-   function UnboundedWideString
-     (UnboundedWideStringExtern : in Ada.Strings.Wide_Unbounded.Unbounded_Wide_String)
-      return Boolean
+   procedure WideString
+     (WideStringExtern : in out Wide_String)
    is begin
       
-      return WideString (WideStringExtern => Ada.Strings.Wide_Unbounded.To_Wide_String (Source => UnboundedWideStringExtern));
+      WideStringExtern := WideString (WideStringExtern => WideStringExtern);
       
-   end UnboundedWideString;
+   end WideString;
    
    
-      
+
    function WideString
      (WideStringExtern : in Wide_String)
-      return Boolean
+      return Wide_String
    is begin
       
       case
         WideStringExtern'Length
       is
          when 0 =>
-            return False;
+            return "";
          
          when others =>
-            null;
+            NewWideString := Ada.Strings.Wide_Unbounded.To_Unbounded_Wide_String (Source => "");
       end case;
       
       WideStringLoop:
@@ -82,44 +84,43 @@ package body ContainsOnlyNumbers is
            WideStringExtern (WideStringLoopvalue)
          is
             when '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' =>
-               null;
+               NewWideString := NewWideString & WideStringExtern (WideStringLoopvalue)'Wide_Image;
             
             when others =>
-               return False;
+               null;
          end case;
             
       end loop WideStringLoop;
       
-      return True;
+      return Ada.Strings.Wide_Unbounded.To_Wide_String (Source => NewWideString);
       
    end WideString;
    
    
    
-   function UnboundedWideWideString
-     (UnboundedWideWideStringExtern : in Ada.Strings.Wide_Wide_Unbounded.Unbounded_Wide_Wide_String)
-      return Boolean
+   procedure WideWideString
+     (WideWideStringExtern : in out Wide_Wide_String)
    is begin
       
-      return WideWideString (WideWideStringExtern => Ada.Strings.Wide_Wide_Unbounded.To_Wide_Wide_String (Source => UnboundedWideWideStringExtern));
+      WideWideStringExtern := WideWideString (WideWideStringExtern => WideWideStringExtern);
       
-   end UnboundedWideWideString;
+   end WideWideString;
    
    
-   
+
    function WideWideString
      (WideWideStringExtern : in Wide_Wide_String)
-      return Boolean
+      return Wide_Wide_String
    is begin
       
       case
         WideWideStringExtern'Length
       is
          when 0 =>
-            return False;
+            return "";
          
          when others =>
-            null;
+            NewWideWideString := Ada.Strings.Wide_Wide_Unbounded.To_Unbounded_Wide_Wide_String (Source => "");
       end case;
       
       WideWideStringLoop:
@@ -129,16 +130,16 @@ package body ContainsOnlyNumbers is
            WideWideStringExtern (WideWideStringLoopvalue)
          is
             when '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' =>
-               null;
+               NewWideWideString := NewWideWideString & WideWideStringExtern (WideWideStringLoopvalue)'Wide_Wide_Image;
             
             when others =>
-               return False;
+               null;
          end case;
             
       end loop WideWideStringLoop;
       
-      return True;
+      return Ada.Strings.Wide_Wide_Unbounded.To_Wide_Wide_String (Source => NewWideWideString);
       
    end WideWideString;
 
-end ContainsOnlyNumbers;
+end RemoveNonNumbers;
