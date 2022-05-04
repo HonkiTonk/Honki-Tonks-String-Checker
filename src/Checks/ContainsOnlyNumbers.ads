@@ -1,13 +1,13 @@
 pragma Warnings (Off, "*array aggregate*");
 
-with Ada.Strings.Unbounded;
-with Ada.Strings.Wide_Unbounded;
-with Ada.Strings.Wide_Wide_Unbounded;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Ada.Strings.Wide_Unbounded; use Ada.Strings.Wide_Unbounded;
+with Ada.Strings.Wide_Wide_Unbounded; use Ada.Strings.Wide_Wide_Unbounded;
 
 package ContainsOnlyNumbers is
 
    function UnboundedString
-     (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
+     (UnboundedStringExtern : in Unbounded_String)
       return Boolean;
 
    function NormalString
@@ -15,7 +15,7 @@ package ContainsOnlyNumbers is
       return Boolean;
    
    function UnboundedWideString
-     (UnboundedWideStringExtern : in Ada.Strings.Wide_Unbounded.Unbounded_Wide_String)
+     (UnboundedWideStringExtern : in Unbounded_Wide_String)
       return Boolean;
    
    function WideString
@@ -23,7 +23,7 @@ package ContainsOnlyNumbers is
       return Boolean;
    
    function UnboundedWideWideString
-     (UnboundedWideWideStringExtern : in Ada.Strings.Wide_Wide_Unbounded.Unbounded_Wide_Wide_String)
+     (UnboundedWideWideStringExtern : in Unbounded_Wide_Wide_String)
       return Boolean;
    
    function WideWideString

@@ -3,6 +3,7 @@ package Changelog is
    -- Version 0.00.0500:
    
    -- RemoveNumbers and RemoveNonNumbers added for unbounded strings.
+   -- 
    
    
    

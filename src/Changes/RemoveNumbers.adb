@@ -1,39 +1,16 @@
 pragma Warnings (Off, "*array aggregate*");
 
-with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
-with Ada.Strings.Wide_Unbounded; use Ada.Strings.Wide_Unbounded;
-with Ada.Strings.Wide_Wide_Unbounded; use Ada.Strings.Wide_Wide_Unbounded;
-
+-- Removes all digits from a string and returns it.
 package body RemoveNumbers is
    
-   procedure UnboundedString
-     (UnboundedStringExtern : in out Ada.Strings.Unbounded.Unbounded_String)
-   is begin
-      
-      UnboundedStringExtern := Ada.Strings.Unbounded.To_Unbounded_String (Source => NormalString (StringExtern => Ada.Strings.Unbounded.To_String (Source => UnboundedStringExtern)));
-      
-   end UnboundedString;
-   
-   
-   
    function UnboundedString
-     (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
-      return Ada.Strings.Unbounded.Unbounded_String
+     (UnboundedStringExtern : in Unbounded_String)
+      return Unbounded_String
    is begin
       
-      return Ada.Strings.Unbounded.To_Unbounded_String (Source => NormalString (StringExtern => Ada.Strings.Unbounded.To_String (Source => UnboundedStringExtern)));
+      return To_Unbounded_String (Source => NormalString (StringExtern => To_String (Source => UnboundedStringExtern)));
       
    end UnboundedString;
-   
-   
-   
-   procedure NormalString
-     (StringExtern : in out String)
-   is begin
-      
-      StringExtern := NormalString (StringExtern => StringExtern);
-      
-   end NormalString;
    
    
 
@@ -49,7 +26,7 @@ package body RemoveNumbers is
             return "";
          
          when others =>
-            NewString := Ada.Strings.Unbounded.To_Unbounded_String (Source => "");
+            NewString := To_Unbounded_String (Source => "");
       end case;
       
       StringLoop:
@@ -67,22 +44,23 @@ package body RemoveNumbers is
             
       end loop StringLoop;
       
-      return Ada.Strings.Unbounded.To_String (Source => NewString);
+      return To_String (Source => NewString);
       
    end NormalString;
    
    
    
-   procedure WideString
-     (WideStringExtern : in out Wide_String)
+   function UnboundedWideString
+     (UnboundedWideStringExtern : in Unbounded_Wide_String)
+      return Unbounded_Wide_String
    is begin
       
-      WideStringExtern := WideString (WideStringExtern => WideStringExtern);
+      return To_Unbounded_Wide_String (Source => WideString (WideStringExtern => To_Wide_String (Source => UnboundedWideStringExtern)));
       
-   end WideString;
+   end UnboundedWideString;
    
    
-
+   
    function WideString
      (WideStringExtern : in Wide_String)
       return Wide_String
@@ -95,7 +73,7 @@ package body RemoveNumbers is
             return "";
          
          when others =>
-            NewWideString := Ada.Strings.Wide_Unbounded.To_Unbounded_Wide_String (Source => "");
+            NewWideString := To_Unbounded_Wide_String (Source => "");
       end case;
       
       WideStringLoop:
@@ -113,19 +91,20 @@ package body RemoveNumbers is
             
       end loop WideStringLoop;
       
-      return Ada.Strings.Wide_Unbounded.To_Wide_String (Source => NewWideString);
+      return To_Wide_String (Source => NewWideString);
       
    end WideString;
    
    
    
-   procedure WideWideString
-     (WideWideStringExtern : in out Wide_Wide_String)
+   function UnboundedWideWideString
+     (UnboundedWideWideStringExtern : in Unbounded_Wide_Wide_String)
+      return Unbounded_Wide_Wide_String
    is begin
       
-      WideWideStringExtern := WideWideString (WideWideStringExtern => WideWideStringExtern);
+      return To_Unbounded_Wide_Wide_String (Source => WideWideString (WideWideStringExtern => To_Wide_Wide_String (Source => UnboundedWideWideStringExtern)));
       
-   end WideWideString;
+   end UnboundedWideWideString;
    
    
 
@@ -141,7 +120,7 @@ package body RemoveNumbers is
             return "";
          
          when others =>
-            NewWideWideString := Ada.Strings.Wide_Wide_Unbounded.To_Unbounded_Wide_Wide_String (Source => "");
+            NewWideWideString := To_Unbounded_Wide_Wide_String (Source => "");
       end case;
       
       WideWideStringLoop:
@@ -159,7 +138,7 @@ package body RemoveNumbers is
             
       end loop WideWideStringLoop;
       
-      return Ada.Strings.Wide_Wide_Unbounded.To_Wide_Wide_String (Source => NewWideWideString);
+      return To_Wide_Wide_String (Source => NewWideWideString);
       
    end WideWideString;
 

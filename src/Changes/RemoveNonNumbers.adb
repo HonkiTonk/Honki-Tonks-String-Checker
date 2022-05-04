@@ -1,18 +1,16 @@
 pragma Warnings (Off, "*array aggregate*");
 
-with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
-with Ada.Strings.Wide_Unbounded; use Ada.Strings.Wide_Unbounded;
-with Ada.Strings.Wide_Wide_Unbounded; use Ada.Strings.Wide_Wide_Unbounded;
-
+-- Removes all non digits from a string and returns it.
 package body RemoveNonNumbers is
 
-   procedure NormalString
-     (StringExtern : in out String)
+   function UnboundedString
+     (UnboundedStringExtern : in Unbounded_String)
+      return Unbounded_String
    is begin
       
-      StringExtern := NormalString (StringExtern => StringExtern);
+      return To_Unbounded_String (Source => NormalString (StringExtern => To_String (Source => UnboundedStringExtern)));
       
-   end NormalString;
+   end UnboundedString;
    
    
 
@@ -52,13 +50,14 @@ package body RemoveNonNumbers is
    
    
    
-   procedure WideString
-     (WideStringExtern : in out Wide_String)
+   function UnboundedWideString
+     (UnboundedWideStringExtern : in Unbounded_Wide_String)
+      return Unbounded_Wide_String
    is begin
       
-      WideStringExtern := WideString (WideStringExtern => WideStringExtern);
+      return To_Unbounded_Wide_String (Source => WideString (WideStringExtern => To_Wide_String (Source => UnboundedWideStringExtern)));
       
-   end WideString;
+   end UnboundedWideString;
    
    
 
@@ -98,13 +97,14 @@ package body RemoveNonNumbers is
    
    
    
-   procedure WideWideString
-     (WideWideStringExtern : in out Wide_Wide_String)
+   function UnboundedWideWideString
+     (UnboundedWideWideStringExtern : in Unbounded_Wide_Wide_String)
+      return Unbounded_Wide_Wide_String
    is begin
       
-      WideWideStringExtern := WideWideString (WideWideStringExtern => WideWideStringExtern);
+      return To_Unbounded_Wide_Wide_String (Source => WideWideString (WideWideStringExtern => To_Wide_Wide_String (Source => UnboundedWideWideStringExtern)));
       
-   end WideWideString;
+   end UnboundedWideWideString;
    
    
 

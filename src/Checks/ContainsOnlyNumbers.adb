@@ -1,13 +1,15 @@
 pragma Warnings (Off, "*array aggregate*");
 
+-- This package checks if a string consists of numbers only.
+-- If it does, then True is returned, otherwise False.
 package body ContainsOnlyNumbers is
    
    function UnboundedString
-     (UnboundedStringExtern : in Ada.Strings.Unbounded.Unbounded_String)
+     (UnboundedStringExtern : in Unbounded_String)
       return Boolean
    is begin
       
-      return NormalString (StringExtern => Ada.Strings.Unbounded.To_String (Source => UnboundedStringExtern));
+      return NormalString (StringExtern => To_String (Source => UnboundedStringExtern));
       
    end UnboundedString;
    
@@ -28,11 +30,11 @@ package body ContainsOnlyNumbers is
             null;
       end case;
       
-      StringLoop:
-      for StringLoopvalue in StringExtern'Range loop
+      CheckLoop:
+      for CheckLoopvalue in StringExtern'Range loop
          
          case
-           StringExtern (StringLoopvalue)
+           StringExtern (CheckLoopvalue)
          is
             when '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' =>
                null;
@@ -41,7 +43,7 @@ package body ContainsOnlyNumbers is
                return False;
          end case;
             
-      end loop StringLoop;
+      end loop CheckLoop;
       
       return True;
       
@@ -50,11 +52,11 @@ package body ContainsOnlyNumbers is
    
    
    function UnboundedWideString
-     (UnboundedWideStringExtern : in Ada.Strings.Wide_Unbounded.Unbounded_Wide_String)
+     (UnboundedWideStringExtern : in Unbounded_Wide_String)
       return Boolean
    is begin
       
-      return WideString (WideStringExtern => Ada.Strings.Wide_Unbounded.To_Wide_String (Source => UnboundedWideStringExtern));
+      return WideString (WideStringExtern => To_Wide_String (Source => UnboundedWideStringExtern));
       
    end UnboundedWideString;
    
@@ -75,11 +77,11 @@ package body ContainsOnlyNumbers is
             null;
       end case;
       
-      WideStringLoop:
-      for WideStringLoopvalue in WideStringExtern'Range loop
+      CheckLoop:
+      for CheckLoopvalue in WideStringExtern'Range loop
          
          case
-           WideStringExtern (WideStringLoopvalue)
+           WideStringExtern (CheckLoopvalue)
          is
             when '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' =>
                null;
@@ -88,7 +90,7 @@ package body ContainsOnlyNumbers is
                return False;
          end case;
             
-      end loop WideStringLoop;
+      end loop CheckLoop;
       
       return True;
       
@@ -97,11 +99,11 @@ package body ContainsOnlyNumbers is
    
    
    function UnboundedWideWideString
-     (UnboundedWideWideStringExtern : in Ada.Strings.Wide_Wide_Unbounded.Unbounded_Wide_Wide_String)
+     (UnboundedWideWideStringExtern : in Unbounded_Wide_Wide_String)
       return Boolean
    is begin
       
-      return WideWideString (WideWideStringExtern => Ada.Strings.Wide_Wide_Unbounded.To_Wide_Wide_String (Source => UnboundedWideWideStringExtern));
+      return WideWideString (WideWideStringExtern => To_Wide_Wide_String (Source => UnboundedWideWideStringExtern));
       
    end UnboundedWideWideString;
    
@@ -122,11 +124,11 @@ package body ContainsOnlyNumbers is
             null;
       end case;
       
-      WideWideStringLoop:
-      for WideWideStringLoopvalue in WideWideStringExtern'Range loop
+      CheckLoop:
+      for CheckLoopvalue in WideWideStringExtern'Range loop
          
          case
-           WideWideStringExtern (WideWideStringLoopvalue)
+           WideWideStringExtern (CheckLoopvalue)
          is
             when '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' =>
                null;
@@ -135,7 +137,7 @@ package body ContainsOnlyNumbers is
                return False;
          end case;
             
-      end loop WideWideStringLoop;
+      end loop CheckLoop;
       
       return True;
       
