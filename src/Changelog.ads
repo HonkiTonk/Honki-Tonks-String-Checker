@@ -1,8 +1,9 @@
 package Changelog is
    
-   -- Version 0.00.0500:
+   -- Version 0.00.0700:
    
    -- RemoveNumbers and RemoveNonNumbers added for unbounded strings.
+   -- NumberToString addad for normal and unbounded strings.
    
    
    

@@ -1,5 +1,5 @@
-# string_checker - Version 0.00.0300
-A small Ada library that performs various checks on strings.
+# string_checker - Version 0.00.0700
+A small Ada library that performs various checks, changes oder conversions on strings.
 
 Mich unterstützen/Support me:
 
