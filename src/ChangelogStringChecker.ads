@@ -1,9 +1,22 @@
-package Changelog is
+package ChangelogStringChecker is
+   
+   -- Version 0.00.:
+   
+   -- 
+   
+   
+   
+   -- Version 0.00.1350:
+   
+   -- Added StringToInteger for normal and unbounded strings.
+   -- License changed from AGPL 3.0 to Apache 2.0.
+   
+   
    
    -- Version 0.00.0710:
    
    -- RemoveNumbers and RemoveNonNumbers added for unbounded strings.
-   -- NumberToString addad for normal and unbounded strings.
+   -- NumberToString added for normal and unbounded strings.
    -- Started to add StringToInteger for normal strings.
    
    
@@ -18,4 +31,4 @@ package Changelog is
    
    -- ContainsOnlyNumbers added for normal and unbounded strings.
 
-end Changelog;
+end ChangelogStringChecker;
