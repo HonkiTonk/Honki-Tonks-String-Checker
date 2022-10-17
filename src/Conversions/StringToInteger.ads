@@ -3,7 +3,8 @@ pragma Warnings (Off, "*array aggregate*");
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Ada.Strings.Wide_Unbounded; use Ada.Strings.Wide_Unbounded;
 with Ada.Strings.Wide_Wide_Unbounded; use Ada.Strings.Wide_Wide_Unbounded;
-with Ada.Strings.Fixed;
+
+private with Ada.Strings.Fixed;
 
 package StringToInteger is
    
