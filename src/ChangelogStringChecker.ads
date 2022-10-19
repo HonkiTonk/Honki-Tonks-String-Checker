@@ -3,6 +3,7 @@ package ChangelogStringChecker is
    -- Version 0.00.1355:
    
    -- License changed from Apache 2.0 to GPL 3.0.
+   -- Readme reworked.
    
    
    
