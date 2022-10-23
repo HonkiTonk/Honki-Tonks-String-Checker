@@ -1,4 +1,4 @@
-# Honki Tonk´s string_checker - Version 0.00.1355
+# Honki Tonk´s String Checker - Version 0.00.1360
 A small Ada library that performs various checks, changes or conversions on strings.
 
 Mich unterstützen/Support me:
